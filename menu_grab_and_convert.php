@@ -4,10 +4,6 @@
 use Sunra\PhpSimple\HtmlDomParser;
 require 'vendor/autoload.php';
 
-// ------------------------------------------ CUT ME
-
-echo "<pre>before class</pre><br />";
-
 /**
  * @author CJ Vogt <mail@chrisvogt.me>
  * @uses sunra/php-simple-html-dom-parser
@@ -21,8 +17,6 @@ class MenuGrabAndConvert {
         $clean = $this->_cleanElement($res);
         return $clean;
     }
-
-// ------------------------------------------ CUT ME
 
     function test() {
         echo '<pre> at: ' . __FUNCTION__ . '</pre>';
@@ -61,8 +55,6 @@ class MenuGrabAndConvert {
 
 }
 
-echo "<br /><pre>after class</pre><hr />";
-
 // To use:
-$Menu = new MenuGrabAndConvert();
-echo $Menu->test();
+// $Menu = new MenuGrabAndConvert();
+// echo $Menu->test();
