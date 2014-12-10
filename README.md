@@ -32,9 +32,9 @@ Todo
 
 #### Convert nav menu from Wordpress theme to Twitter Bootstrap
 
-- [ ] find TOP_NAV_ELEMENT (eg ".top-nav")
-  - [ ] append classes [.nav, .navbar-nav]
-- [ ] * find all TOP_NAV_ELEMENT [ul] children with class [.menu-item-has-children]
-  - [ ] append class [.dropdown]
-- [ ] Find all TOP_NAV_ELEMENT->[.menu-item-has-children] [ul] children with class [.sub-menu]
-  - [ ] append class [.dropdown-menu]
+- [x] find [ul]TOP_NAV_ELEMENT (eg ".top-nav")
+  - [x] append classes [.nav, .navbar-nav]
+- [x] * find all [ul]TOP_NAV_ELEMENT children [li] with class [.menu-item-has-children]
+  - [x] append class [.dropdown]
+- [x] find all [ul] children with class [.sub-menu]
+  - [x] append class [.dropdown-menu]

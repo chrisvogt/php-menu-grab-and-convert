@@ -24,16 +24,39 @@ class MenuGrabAndConvert {
 
 // ------------------------------------------ CUT ME
 
-    function _navGetter($url, $element) {
-        echo '<pre> at: ' . __FUNCTION__ . '</pre>';
-        $dom = HtmlDomParser::file_get_html( $url );
-
-        var_dump($dom);
-    }
-
     function test() {
         echo '<pre> at: ' . __FUNCTION__ . '</pre>';
-        $this->_navGetter('http://example.com', 'p');
+        $nav = $this->_getNav('http://sandbox-php.dev/demo/', 'ul[id=topnav]');
+
+        // convert to bootstrap
+        $bs = $this->_convertToBootstrap($nav);
+        return $bs;
+    }
+
+    function _getNav($url, $element) {
+        echo '<pre> at: ' . __FUNCTION__ . '</pre>';
+        $dom = HtmlDomParser::file_get_html( $url );
+        $nav = $dom->find($element, 0);
+
+        return $nav;
+    }
+
+    function _convertToBootstrap($element) {
+
+        # set bs classes for menu unordered list
+        $element->class = 'nav navbar-nav';
+
+        # set bs class all list items with child menus
+        foreach ($element->find("li.menu-item-has-children") as $item) {
+            $item->class = 'dropdown';
+        }
+
+        # Find all TOP_NAV_ELEMENT->[.menu-item-has-children] [ul] children with class [.sub-menu]
+        foreach ($element->find("ul.sub-menu") as $item) {
+            $item->class = 'dropdown-menu';
+        }
+
+        return $element;
     }
 
 }
