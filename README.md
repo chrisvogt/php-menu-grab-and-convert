@@ -20,9 +20,17 @@ Install
 
  composer.phar
 ```json
-"require": {
-    "chrisvogt/php-simple-html-dom-parser": "*"
+{
+    "repositories": [
+        {
+            "url": "https://github.com/chrisvogt/php-menu-grab-and-convert.git",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "chrisvogt/php-menu-grab-and-convert": "*"
     }
+}
 ```
 
 Todo
@@ -38,3 +46,12 @@ Todo
   - [x] append class [.dropdown]
 - [x] find all [ul] children with class [.sub-menu]
   - [x] append class [.dropdown-menu]
+
+#### Caching
+
+- [ ] if timestamp is older than x=2 hours, fetch new menu
+
+#### Roadmap
+- [ ] documentation rough draft
+- [ ] controls for menu selectors and replacement classes
+- [ ] example github-hosted site
