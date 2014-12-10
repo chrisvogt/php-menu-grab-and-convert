@@ -12,15 +12,14 @@ require 'vendor/autoload.php';
  */
 class MenuGrabAndConvert {
 
-    function buildNav($url, $element) {
-        $res = $this->_getElement($url, $element);
-        $clean = $this->_cleanElement($res);
-        return $clean;
+    public $url = 'http://example.com';
+
+    function __construct($url) {
+        $this->url = $url;
     }
 
-    function test() {
-        echo '<pre> at: ' . __FUNCTION__ . '</pre>';
-        $nav = $this->_getNav('http://sandbox-php.dev/demo/', 'ul[id=topnav]');
+    function test($selector) {
+        $nav = $this->_getNav($this->url, $selector);
 
         // convert to bootstrap
         $bs = $this->_convertToBootstrap($nav);
@@ -28,7 +27,6 @@ class MenuGrabAndConvert {
     }
 
     function _getNav($url, $element) {
-        echo '<pre> at: ' . __FUNCTION__ . '</pre>';
         $dom = HtmlDomParser::file_get_html( $url );
         $nav = $dom->find($element, 0);
 
@@ -43,6 +41,14 @@ class MenuGrabAndConvert {
         # set bs class all list items with child menus
         foreach ($element->find("li.menu-item-has-children") as $item) {
             $item->class = 'dropdown';
+
+            # hyperlink adjustments
+            $this->_convertHyperlinks($item->firstChild());
+        }
+
+        # validate all hyperlink base urls
+        foreach ($element->find("a") as $item) {
+            $this->_validateHyperlinkBaseUrl($item);
         }
 
         # Find all TOP_NAV_ELEMENT->[.menu-item-has-children] [ul] children with class [.sub-menu]
@@ -53,8 +59,22 @@ class MenuGrabAndConvert {
         return $element;
     }
 
+    function _convertHyperlinks($a) {
+        $a->{'class'} = 'dropdown-toggle';
+        $a->{'data-toggle'} = 'dropdown';
+        $a->{'role'} = 'button';
+        $a->{'aria-expanded'} = 'false';
+        $a->innertext .= '<span class="caret"></span>';
+    }
+
+    function _validateHyperlinkBaseUrl($item) {
+        if (strpos($this->url, $item->href) == false) {
+            $item->href = "{$this->url}{$item->href}";
+        }
+    }
+
 }
 
 // To use:
-// $Menu = new MenuGrabAndConvert();
-// echo $Menu->test();
+// $Menu = new MenuGrabAndConvert('http://example.com');
+// echo $Menu->test('ul[id=topnav]');

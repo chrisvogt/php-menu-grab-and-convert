@@ -46,6 +46,8 @@ Todo
   - [x] append class [.dropdown]
 - [x] find all [ul] children with class [.sub-menu]
   - [x] append class [.dropdown-menu]
+- [x] add Bootstrap attributes to dropdown hyperlinks
+- [x] verify base url exists in all hyperlink links
 
 #### Caching
 
