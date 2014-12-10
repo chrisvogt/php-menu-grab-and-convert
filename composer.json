@@ -1,0 +1,24 @@
+{
+    "name": "chrisvogt/php-menu-grab-and-convert",
+    "type": "library",
+    "description": "Scrape navigation menus from another site for display. Supports caching and converting default Wordpress CSS selectors to Twitter Bootstrap.",
+    "keywords": ["nav", "navigation", "menu", "wordpress", "bootstrap", "convert"],
+    "homepage": "https://github.com/chrisvogt/php-menu-grab-and-convert",
+    "license": "MIT",
+    "authors": [
+        {
+            "homepage": "https://github.com/chrisvogt/php-menu-grab-and-convert"
+        },
+        {
+            "name": "CJ Vogt",
+            "email": "mail@chrisvogt.me",
+            "homepage": "http://chrisvogt.me"
+        }
+    ],
+    "repositories": [
+        { "type": "git", "url": "https://github.com/chrisvogt/php-menu-grab-and-convert.git" }
+    ],
+    "require": {
+        "chrisvogt/php-menu-grab-and-convert": "*"
+    }
+}
