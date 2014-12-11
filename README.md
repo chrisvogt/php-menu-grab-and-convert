@@ -1,6 +1,7 @@
 PHP Menu Grab and Convert
 =========================
 
+[![Build Status](https://travis-ci.org/chrisvogt/php-menu-grab-and-convert.svg)](https://travis-ci.org/chrisvogt/php-menu-grab-and-convert)
 [![GitHub release](http://img.shields.io/github/release/chrisvogt/php-menu-grab-and-convert.svg?style=flat)](https://github.com/chrisvogt/php-menu-grab-and-convert/releases)
 [![Code Climate](http://img.shields.io/codeclimate/coverage/github/triAGENS/ashikawa-core.svg?style=flat)](https://github.com/chrisvogt/php-menu-grab-and-convert)
 [![License: MIT](http://img.shields.io/badge/license-MIT-70a1fb.svg?style=flat)](https://github.com/chrisvogt/php-menu-grab-and-convert/blob/master/LICENSE)
