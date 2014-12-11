@@ -1,20 +1,24 @@
 <?php
+/**
+ * @copyright    2014, CJ Vogt - http://chrisvogt.me
+ * @license      https://github.com/chrisvogt/php-menu-grab-and-convert/blob/master/LICENSE
+ * @link         https://github.com/chrisvogt/php-menu-grab-and-convert
+ */
+namespace chrisvogt\MenuGrabAndConvert;
 
-// Include Simple HTML Dom Parser
 use Sunra\PhpSimple\HtmlDomParser;
-require 'vendor/autoload.php';
 
 /**
- * @author CJ Vogt <mail@chrisvogt.me>
- * @uses sunra/php-simple-html-dom-parser
- * @see http://simplehtmldom.sourceforge.net/manual.htm
- * @see https://github.com/sunra/php-simple-html-dom-parser
+ * Class MenuUtils
+ * @package    MenuGrabAndConvert
+ * @author     CJ Vogt <mail@chrisvogt.me>
+ * @see        https://github.com/sunra/php-simple-html-dom-parser
  */
-class MenuGrabAndConvert {
+class MenuUtils {
 
-    public $url = 'http://example.com';
+    public $url = null;
 
-    function __construct($url) {
+    function __construct($url = 'http://example.com') {
         $this->url = $url;
     }
 
@@ -24,6 +28,13 @@ class MenuGrabAndConvert {
         // convert to bootstrap
         $bs = $this->_convertToBootstrap($nav);
         return $bs;
+    }
+    
+    /**
+     * URL getter
+     */
+    function getUrl() {
+        return $this->url;
     }
 
     function _getNav($url, $element) {
@@ -74,7 +85,3 @@ class MenuGrabAndConvert {
     }
 
 }
-
-// To use:
-// $Menu = new MenuGrabAndConvert('http://example.com');
-// echo $Menu->test('ul[id=topnav]');

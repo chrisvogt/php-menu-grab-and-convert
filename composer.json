@@ -1,5 +1,5 @@
 {
-    "name": "chrisvogt/php-menu-grab-and-convert",
+    "name": "chrisvogt/menu-grab-and-convert",
     "type": "library",
     "description": "Scrape navigation menus from another site for display. Supports caching and converting default Wordpress CSS selectors to Twitter Bootstrap.",
     "keywords": ["nav", "navigation", "menu", "wordpress", "bootstrap", "convert"],
@@ -14,5 +14,13 @@
     ],
     "require": {
         "sunra/php-simple-html-dom-parser": "v1.5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ChrisVogt\\MenuGrabAndConvert\\": ["src/", "tests/"]
+        }
     }
 }
