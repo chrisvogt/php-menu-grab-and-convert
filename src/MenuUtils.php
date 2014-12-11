@@ -4,24 +4,33 @@
  * @license      https://github.com/chrisvogt/php-menu-grab-and-convert/blob/master/LICENSE
  * @link         https://github.com/chrisvogt/php-menu-grab-and-convert
  */
-namespace chrisvogt\MenuGrabAndConvert;
+namespace ChrisVogt\MenuGrabAndConvert;
 
 use Sunra\PhpSimple\HtmlDomParser;
 
 /**
  * Class MenuUtils
  * @package    MenuGrabAndConvert
- * @author     CJ Vogt <mail@chrisvogt.me>
  * @see        https://github.com/sunra/php-simple-html-dom-parser
  */
 class MenuUtils {
 
+    /**
+     * @var
+     */
     public $url = null;
 
+    /**
+     * @param string $url
+     */
     function __construct($url = 'http://example.com') {
         $this->url = $url;
     }
 
+    /**
+     * @param string $selector
+     * @return object|string
+     */
     function test($selector) {
         $nav = $this->_getNav($this->url, $selector);
 
@@ -32,11 +41,17 @@ class MenuUtils {
     
     /**
      * URL getter
+     * @return string
      */
     function getUrl() {
         return $this->url;
     }
 
+    /**
+     * @param string $url
+     * @param string $element
+     * @return object|string
+     */
     function _getNav($url, $element) {
         $dom = HtmlDomParser::file_get_html( $url );
         $nav = $dom->find($element, 0);
