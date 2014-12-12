@@ -7,14 +7,10 @@ PHP Menu Grab and Convert
 [![License: MIT](http://img.shields.io/badge/license-MIT-70a1fb.svg?style=flat)](https://github.com/chrisvogt/php-menu-grab-and-convert/blob/master/LICENSE)
 [![Twitter: @c1v0](http://img.shields.io/badge/contact-%40c1v0-70a1fb.svg?style=flat)](https://twitter.com/c1v0)
 
-The utility of this class is to
+A library that makes it easy to clone a navigation menu from another location and work it into a new style.
+- Scrape a navigation menu from another site using [sunra/php-simple-html-dom-parser/](https://github.com/sunra/php-simple-html-dom-parser), an adaptation of the [PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/).
 
-* grab a navigation menu from an external Wordpress site
-* _(OPT)_ cache to avert potential request throttling
-* _(OPT)_ convert the navigation menu from Wordpress's default menu style to Twitter Bootstrap
-* output the navigation menu
-
-Uses [sunra/php-simple-html-dom-parser/](https://github.com/sunra/php-simple-html-dom-parser), an adaptation of the [PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/).
+, convert the menu into another style (e.g., Twitter Bootstrap), cache the menu, and output it to a page.
 
 Install
 -------
