@@ -16,7 +16,15 @@ use Sunra\PhpSimple\HtmlDomParser;
  */
 class ConversionUtils {
     
-    function _convertToBootstrap($element) {
+    function testMe() {
+        return TRUE;
+    }
+    
+    function setTopLevelNavClass((string) $class = null) {
+        $class = (string) 'nav navbar-nav';
+    }
+    
+    function convertToBootstrap($element) {
 
         # set bs classes for menu unordered list
         $element->class = (string) 'nav navbar-nav';
