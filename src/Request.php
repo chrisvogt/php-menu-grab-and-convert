@@ -1,70 +1,46 @@
 <?php
-/**
- * PHP Menu Grab and Convert (Mgac).
- *
- * @link https://github.com/chrisvogt/php-menu-grab-and-convert
- */
-
 /*
- * PHP Menu Grab and Convert
+ * This file is part of PHP Menu Grab and Convert (Mgac).
  *
- * Copyright (c) 2014 CJ Vogt <mail@chrisvogt.me>
+ * (c) 2014 CJ Vogt <mail@chrisvogt.me>
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
-
-namespace ChrisVogt\MenuGrabAndConvert;
+namespace MenuGrabAndConvert;
 
 use Sunra\PhpSimple\HtmlDomParser;
 
 /**
- * Request class
+ * Menu Grab and Convert request class.
  *
- * Fetches a menu as an HtmlDomParser object.
+ * @package     MenuGrabAndConvert
  */
 class Request
 {
 
-    public $url;
+    protected $configuration = null;
 
     /**
-     * class constructor
+     * Load the configuration.
+     *
+     * @param MenuGrabAndConvert\Configuration $configuration
      */
-    function __construct( $url = 'http://example.com' ) {
-        $this->url = $url;
+    public function __construct(Configuration $configuration)
+    {
+        $this->configuration = $configuration;
     }
 
     /**
-     * url setter
-     * @return string Request url
+     * Make the request.
+     *
+     * @uses Sunra\PhpSimple\HtmlDomParser
+     * @return HtmlDomParser dom object (opt) filtered to element
      */
-    function setUrl( $url ) {
-        $this->url = $url;
-    }
+    function make() {
+        $response = HtmlDomParser::file_get_html($this->configuration->_targetUrl);
 
-    /**
-     * @return object HtmlDomParser object with entire page content
-     */
-    function fetch() {
-        $response = HtmlDomParser::file_get_html( $this->url );
-
-        if ($reponse) {
+        if ($response) {
             return $response;
         } else { return false; }
     }

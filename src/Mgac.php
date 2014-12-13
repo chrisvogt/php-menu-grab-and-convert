@@ -28,86 +28,62 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+namespace MenuGrabAndConvert;
 
-namespace ChrisVogt\MenuGrabAndConvert;
-
-use ChrisVogt\MenuGrabAndConvert\Convert;
-use ChrisVogt\MenuGrabAndConvert\Request;
-use Sunra\PhpSimple\HtmlDomParser;
-
-/*
-Menu Grab and Convert usage examples.
-
-Render a menu
-
-    $target = array(
-        'url'       => 'http://example.com',
-        'element'   => 'h1' // @see Simple HTML Dom Parser Manual,'How to find
-                            // HTML elements?'
-    );
-
-    $options = array(           // defaults...
-        'baseUrl'               => $target['url'], // validate in href
-        'convertToBootstrap'    => true, // @todo convert to mapping matrix
-        'cacheTime'             => '4h',
-        'cachePath'             => 'tmp/',
-        'cacheExtension'        => '.cache'
-    );
-
-    // insantiate the class
-    $Mgac = new Mgac();
-
-    // render a menu's HTML with or without changes
-    $Mgac->renderMenu( (array) $target, (array) $options );
-*/
+require_once realpath(__DIR__.'/../vendor/autoload.php');
+require_once realpath(__DIR__.'/Configuration.php');
+require_once realpath(__DIR__.'/Convert.php');
+require_once realpath(__DIR__.'/Menu.php');
+require_once realpath(__DIR__.'/Request.php');
 
 /**
  * Mgac
  *
  * Controller class for Menu Grab and Convert
  *
- * @package    MenuGrabAndConvert
- * @link       https://github.com/chrisvogt/php-menu-grab-and-convert
- * @see        https://github.com/sunra/php-simple-html-dom-parser
- * @author     CJ Vogt <mail@chrisvogt.me>
+ * @package     MenuGrabAndConvert
+ * @author      CJ Vogt <mail@chrisvogt.me>
  */
 class Mgac
 {
 
+    public $configuration = null;
+    protected $menu       = null;
+    protected $request    = null;
+
     /**
-     * @param array $target
-     * @param array $options
-     * @return object|string
+     * Load configuration and make the request.
+     *
+     * @param Configuration $configuration
      */
-    function build( $target = null, $options = null) {
-        $Request = new Request();
-
-        // @todo if $target['url'] is not null, use it
-        // @todo if $options is null, use defaults
-
-        $dom = $Request->fetch();
-
-        // filter out everything except the target
-        $this->filterElement( $dom, $target['selector'] );
-
-        // convert to bootstrap
-        if ($convert != false) {
-            $Convert::toBootstrap( $dom );
-        }
-
-        return $dom;
+    public function __construct(Configuration $configuration)
+    {
+        $configuration->validate();
+        $this->configuration = $configuration;
+        $this->request       = new Request($configuration);
     }
 
     /**
-     * Scrape element off an html page
+     * Build the menu
      *
-     * @param object HTMLDomParser
-     * @param string $selector
-     * @return object HTMLDomParser
+     * @param array $target
      */
-    function filterElement($dom, $selector = null) {
-        $element = $dom->find( $selector, 0 );
-        return $element;
+    function render() {
+        $dom = $this->request->make();
+
+        if ($dom != false) {
+            $element = $this->configuration->filterElement($dom, $this->configuration->_targetElement);
+
+            if (isset($this->configuration->_convertToBootstrap)) {
+                $convert = new Convert();
+                $element = $convert->toBootstrap($element, $this->configuration->_targetUrl);
+            }
+
+            return $element;
+        } else {
+            return 'Unable to retrieve the target page.';
+        }
+
     }
 
 }
