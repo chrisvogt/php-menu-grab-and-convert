@@ -9,7 +9,7 @@ PHP Menu Grab and Convert
 
 A library that makes it easy to clone and render another site's navigation menu targeted by url and menu element. Uses [sunra/php-simple-html-dom-parser/](https://github.com/sunra/php-simple-html-dom-parser), an adaptation of the [PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/).
 
-This project was born as a quick, simple solution to replication a navigation menu on a top level domain to a set of static pages underneath, each of which may be in a different style or front-end framework yet need to contain the same menu items and hyperlinks.
+This project was born as a quick, simple solution to replicate a navigation menu on a top-level domain to a set of static pages underneath, each of which may be in a different style or front-end framework yet need to contain the same menu items and hyperlinks.
 
 In its current version (0.7._x_), Menu Grab and Convert may be unstable and simply gets the job it needs to (above) done for that specific project. It is ready to share by the 0.9._x_ branch and stable by 1.0.0. Please save contributions until 0.9.0, at which point the supporting documentation, tests, and code refactoring will be less embarrassing to distribute.
 
