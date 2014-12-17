@@ -7,7 +7,7 @@ PHP Menu Grab and Convert
 [![License: MIT](http://img.shields.io/badge/license-MIT-70a1fb.svg?style=flat)](https://github.com/chrisvogt/php-menu-grab-and-convert/blob/master/LICENSE)
 [![Twitter: @c1v0](http://img.shields.io/badge/contact-%40c1v0-70a1fb.svg?style=flat)](https://twitter.com/c1v0)
 
-A library that makes it easy to clone and render another site's navigation menu targeted by url and menu element. Uses [sunra/php-simple-html-dom-parser/](https://github.com/sunra/php-simple-html-dom-parser), an adaptation of the [PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/).
+A library that makes it easy to clone, convert, and render another site's navigation menu. Uses [sunra/php-simple-html-dom-parser/](https://github.com/sunra/php-simple-html-dom-parser), an adaptation of the [PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/).
 
 This project was born as a quick, simple solution to replicate a navigation menu on a top-level domain to a set of static pages underneath, each of which may be in a different style or front-end framework yet need to contain the same menu items and hyperlinks.
 
@@ -37,7 +37,7 @@ Usage
 -----
 
 ```php
-require_once realpath(__DIR__.'/src/Mgac.php');
+require_once realpath(__DIR__.'/vendor/autoload.php');
 
 $target  = array( // Required
     'url'       => 'http://sandbox-php.dev/demo/',
@@ -53,6 +53,6 @@ $options = array( // Optional, for Bootstrap conversion
     )
 );
 
-$config = new MenuGrabAndConvert\Configuration($target, $options);
-$mgac = new MenuGrabAndConvert\Mgac($config);
+$config = new \MenuGrabAndConvert\Configuration($target, $options);
+$mgac = new \MenuGrabAndConvert\Mgac($config);
 ```
