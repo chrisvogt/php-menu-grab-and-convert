@@ -37,7 +37,7 @@ Usage
 -----
 
 ```php
-require_once realpath(__DIR__.'/vendor/autoload.php');
+require_once realpath('vendor/autoload.php');
 
 $target  = array( // Required
     'url'       => 'http://sandbox-php.dev/demo/',

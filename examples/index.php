@@ -1,5 +1,6 @@
 <?php
-require_once realpath(__DIR__.'/../src/Mgac.php');
+require_once realpath('vendor/autoload.php');
+//@dev require_once realpath(__DIR__.'/../src/Mgac.php');
 
 $target  = array( // Required
     'url'       => 'http://sandbox-php.dev/demo/',
