@@ -7,13 +7,11 @@ PHP Menu Grab and Convert
 [![License: MIT](http://img.shields.io/badge/license-MIT-70a1fb.svg?style=flat)](https://github.com/chrisvogt/php-menu-grab-and-convert/blob/master/LICENSE)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/d8ba3b7d-608b-49f0-8b71-e72f90f0da3f/mini.png)](https://insight.sensiolabs.com/projects/d8ba3b7d-608b-49f0-8b71-e72f90f0da3f)
 
-A library that makes it easy to clone, convert, and render another site's navigation menu. Uses [sunra/php-simple-html-dom-parser/](https://github.com/sunra/php-simple-html-dom-parser), an adaptation of the [PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/).
+PHP Menu Grab and Convert (Mgac) is a small library that makes it easy to clone, convert, and render another site's navigation menu. Uses [sunra/php-simple-html-dom-parser/](https://github.com/sunra/php-simple-html-dom-parser), an adaptation of the [PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/).
 
 This project was born as a quick, simple solution to replicate a navigation menu on a top-level domain to a set of static pages underneath, each of which may be in a different style or front-end framework yet need to contain the same menu items and hyperlinks.
 
-In its current version (0.7._x_), Menu Grab and Convert may be unstable and simply gets the job it needs to (above) done for that specific project. It is ready to share by the 0.9._x_ branch and stable by 1.0.0. Please save contributions until 0.9.0, at which point the supporting documentation, tests, and code refactoring will be less embarrassing to distribute.
-
-Meanwhile, please be free to utilize the [suggestion box](https://github.com/chrisvogt/php-menu-grab-and-convert/issues/new).
+Please be free to utilize the [suggestion box](https://github.com/chrisvogt/php-menu-grab-and-convert/issues/new) or [read the documentation](https://github.com/chrisvogt/php-menu-grab-and-convert/wiki).
 
 Install
 -------
