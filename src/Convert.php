@@ -13,7 +13,6 @@ namespace MenuGrabAndConvert;
  * Menu conversion class
  *
  * @package    MenuGrabAndConvert
- * @todo       Make this class less procedural
  * @see        https://github.com/sunra/php-simple-html-dom-parser
  */
 class Convert
@@ -34,7 +33,6 @@ class Convert
     /**
      * Menu to Bootstrap procedural function.
      *
-     * @todo rewrite in OO paradigm; utilize config selectors
      * @param simple_html_dom_node $element
      * @param string $baseUrl
      */
