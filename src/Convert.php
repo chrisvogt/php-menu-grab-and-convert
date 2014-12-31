@@ -77,7 +77,7 @@ class Convert
      * Verify the target's base URL is in the hyperlink.
      */
     protected function _validateHyperlinkBaseUrl($item, $baseUrl = null) {
-        if (strpos($baseUrl, $item->href) == false) {
+        if (strpos($baseUrl, $item->href) === false) {
             $item->href = "{$baseUrl}{$item->href}";
         }
     }

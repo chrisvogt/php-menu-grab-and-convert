@@ -65,7 +65,7 @@ class Mgac
     function render() {
         $dom = $this->request->make();
 
-        if ($dom != false) {
+        if (isset($dom)) {
             $element = $this->configuration->filterElement($dom, $this->configuration->_targetElement);
 
             if (isset($this->configuration->_convertToBootstrap)) {
