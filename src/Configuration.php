@@ -43,11 +43,9 @@ class Configuration extends Menu
     {
         if (!$this->targetUrl) {
             throw new \InvalidArgumentException('Cannot initialize Mgac without a target URL.');
-            return false;
         }
         if (!$this->targetElement) {
             throw new \InvalidArgumentException('Cannot initialize Mgac without a target element.');
-            return false;
         }
     }
 
