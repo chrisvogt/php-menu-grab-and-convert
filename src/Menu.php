@@ -9,8 +9,6 @@
  */
 namespace MenuGrabAndConvert;
 
-use Sunra\PhpSimple\HtmlDomParser;
-
 /**
  * Class Menu
  *

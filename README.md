@@ -1,11 +1,11 @@
 PHP Menu Grab and Convert
 =========================
 
-[![Build Status](https://travis-ci.org/chrisvogt/php-menu-grab-and-convert.svg)](https://travis-ci.org/chrisvogt/php-menu-grab-and-convert)
 [![GitHub release](http://img.shields.io/github/release/chrisvogt/php-menu-grab-and-convert.svg?style=flat)](https://github.com/chrisvogt/php-menu-grab-and-convert/releases)
+[![Build Status](https://travis-ci.org/chrisvogt/php-menu-grab-and-convert.svg)](https://travis-ci.org/chrisvogt/php-menu-grab-and-convert)
 [![Code Climate](http://img.shields.io/codeclimate/coverage/github/triAGENS/ashikawa-core.svg?style=flat)](https://github.com/chrisvogt/php-menu-grab-and-convert)
 [![License: MIT](http://img.shields.io/badge/license-MIT-70a1fb.svg?style=flat)](https://github.com/chrisvogt/php-menu-grab-and-convert/blob/master/LICENSE)
-[![Twitter: @c1v0](http://img.shields.io/badge/contact-%40c1v0-70a1fb.svg?style=flat)](https://twitter.com/c1v0)
+[![SensioLabs](https://insight.sensiolabs.com/projects/d8ba3b7d-608b-49f0-8b71-e72f90f0da3f/small.png)](https://insight.sensiolabs.com/projects/d8ba3b7d-608b-49f0-8b71-e72f90f0da3f)
 
 A library that makes it easy to clone, convert, and render another site's navigation menu. Uses [sunra/php-simple-html-dom-parser/](https://github.com/sunra/php-simple-html-dom-parser), an adaptation of the [PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/).
 
@@ -37,7 +37,9 @@ Usage
 -----
 
 ```php
-require_once realpath('vendor/autoload.php');
+use \MenuGrabAndConvert;
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 $target  = array( // Required
     'url'       => 'http://sandbox-php.dev/demo/',
