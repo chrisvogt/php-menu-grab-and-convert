@@ -36,10 +36,10 @@ class Menu
     /**
      * Filter out only the target element.
      *
-     * @param HtmlDomParser $dom
+     * @param \simple_html_dom $dom
      * @param string $selector
      */
-    public function filterElement($dom, $selector)
+    public function filterElement(\simple_html_dom $dom, $selector)
     {
         return ( $dom->find( $selector, 0 ) );
     }
