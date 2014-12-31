@@ -9,8 +9,6 @@
  */
 namespace MenuGrabAndConvert;
 
-require_once 'Menu.php';
-
 /**
  * Mgac configuration class.
  *

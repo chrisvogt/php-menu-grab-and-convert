@@ -30,11 +30,6 @@
  */
 namespace MenuGrabAndConvert;
 
-require_once realpath(__DIR__.'/Configuration.php');
-require_once realpath(__DIR__.'/Convert.php');
-require_once realpath(__DIR__.'/Menu.php');
-require_once realpath(__DIR__.'/Request.php');
-
 /**
  * Mgac
  *
