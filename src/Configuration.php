@@ -18,18 +18,17 @@ namespace MenuGrabAndConvert;
  */
 class Configuration extends Menu
 {
-
-    public $_targetUrl;
-    public $_targetElement;
-    public $_validateBaseUrl;
-    public $_convertToBootstrap;
-    public $_selectors;
+    public $targetUrl;
+    public $targetElement;
+    public $validateBaseUrl;
+    public $convertToBootstrap;
+    public $selectors;
 
     /**
      * Load the given data array into options.
      *
      * @param array $target
-     * @param array|stdClass $data option data
+     * @param mixed $data option data
      */
     public function __construct($target, $data = array())
     {
@@ -42,11 +41,11 @@ class Configuration extends Menu
      */
     public function validate()
     {
-        if (!$this->_targetUrl) {
+        if (!$this->targetUrl) {
             throw new \InvalidArgumentException('Cannot initialize Mgac without a target URL.');
             return false;
         }
-        if (!$this->_targetElement) {
+        if (!$this->targetElement) {
             throw new \InvalidArgumentException('Cannot initialize Mgac without a target element.');
             return false;
         }
@@ -58,20 +57,19 @@ class Configuration extends Menu
     protected function initialize($options)
     {
         if ( isset($options['target']['url']) ) {
-            $this->_targetUrl = $options['target']['url'];
+            $this->targetUrl = $options['target']['url'];
         }
         if ( isset($options['target']['element']) ) {
-            $this->_targetElement = $options['target']['element'];
+            $this->targetElement = $options['target']['element'];
         }
         if ( isset($options['validateBaseUrl']) ) {
-            $this->_validateBaseUrl = $options['validateBaseUrl'];
+            $this->validateBaseUrl = $options['validateBaseUrl'];
         }
         if ( isset($options['convertToBootstrap']) ) {
-            $this->_convertToBootstrap = $options['convertToBootstrap'];
+            $this->convertToBootstrap = $options['convertToBootstrap'];
         }
         if ( isset($options['selectors']) ) {
-            $this->_selectors = $options['selectors'];
+            $this->selectors = $options['selectors'];
         }
     }
-
 }

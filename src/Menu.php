@@ -23,26 +23,24 @@ use Sunra\PhpSimple\HtmlDomParser;
  */
 class Menu
 {
-
     /**
      * Load the configuration to the Menu.
      *
-     * @param array|stdClass $data
+     * @param mixed $data
      */
     public function __construct($data)
     {
-        $this->initialize($data); // why is this killing the data?
+        $this->initialize($data);
     }
 
     /**
      * Filter out only the target element.
      *
      * @param HtmlDomParser $dom
-     * @param string $element
+     * @param string $selector
      */
     public function filterElement($dom, $selector)
     {
         return ( $dom->find( $selector, 0 ) );
     }
-
 }

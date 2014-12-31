@@ -18,13 +18,12 @@ use Sunra\PhpSimple\HtmlDomParser;
  */
 class Request
 {
-
     protected $configuration = null;
 
     /**
      * Load the configuration.
      *
-     * @param MenuGrabAndConvert\Configuration $configuration
+     * @param Configuration $configuration
      */
     public function __construct(Configuration $configuration)
     {
@@ -34,15 +33,15 @@ class Request
     /**
      * Make the request.
      *
-     * @uses Sunra\PhpSimple\HtmlDomParser
+     * @uses HtmlDomParser
      * @return HtmlDomParser dom object (opt) filtered to element
      */
-    function make() {
-        $response = HtmlDomParser::file_get_html($this->configuration->_targetUrl);
+    function make()
+    {
+        $response = HtmlDomParser::file_get_html($this->configuration->targetUrl);
 
         if ($response) {
             return $response;
         } else { return false; }
     }
-
 }

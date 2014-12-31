@@ -40,7 +40,6 @@ namespace MenuGrabAndConvert;
  */
 class Mgac
 {
-
     public $configuration = null;
     protected $menu       = null;
     protected $request    = null;
@@ -59,18 +58,17 @@ class Mgac
 
     /**
      * Build the menu
-     *
-     * @param array $target
      */
-    function render() {
+    function render()
+    {
         $dom = $this->request->make();
 
         if (isset($dom)) {
-            $element = $this->configuration->filterElement($dom, $this->configuration->_targetElement);
+            $element = $this->configuration->filterElement($dom, $this->configuration->targetElement);
 
-            if (isset($this->configuration->_convertToBootstrap)) {
+            if (isset($this->configuration->convertToBootstrap)) {
                 $convert = new Convert();
-                $element = $convert->toBootstrap($element, $this->configuration->_targetUrl);
+                $element = $convert->toBootstrap($element, $this->configuration->targetUrl);
             }
 
             return $element;
@@ -79,5 +77,4 @@ class Mgac
         }
 
     }
-
 }
