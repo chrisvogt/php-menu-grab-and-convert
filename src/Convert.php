@@ -17,15 +17,15 @@ namespace MenuGrabAndConvert;
  */
 class Convert
 {
-
     /**
      * Bootstrap conversion.
      *
      * @param simple_html_dom_node $nav
      * @param string $baseUrl
      */
-    function toBootstrap($nav, $baseUrl) {
-        $bs = $this->_changeClasses($nav, $baseUrl);
+    function toBootstrap($nav, $baseUrl)
+    {
+        $bs = $this->changeClasses($nav, $baseUrl);
 
         return $bs;
     }
@@ -36,7 +36,8 @@ class Convert
      * @param simple_html_dom_node $element
      * @param string $baseUrl
      */
-    protected function _changeClasses($element, $baseUrl) {
+    protected function changeClasses($element, $baseUrl)
+    {
 
         # set bs classes for top level ul
         $element->class = 'nav navbar-nav';
@@ -46,12 +47,12 @@ class Convert
             $item->class = 'dropdown';
 
             # hyperlink adjustments
-            $this->_convertHyperlinks($item->firstChild());
+            $this->convertHyperlinks($item->firstChild());
         }
 
         # validate all hyperlink base urls
         foreach ($element->find("a") as $item) {
-            $this->_validateHyperlinkBaseUrl($item, $baseUrl);
+            $this->validateHyperlinkBaseUrl($item, $baseUrl);
         }
 
         # Find all TOP_NAV_ELEMENT->[.menu-item-has-children] [ul] children with class [.sub-menu]
@@ -65,7 +66,8 @@ class Convert
     /**
      * Hyperlink conversion method.
      */
-    protected function _convertHyperlinks($a) {
+    protected function convertHyperlinks($a)
+    {
         $a->{'class'} = 'dropdown-toggle';
         $a->{'data-toggle'} = 'dropdown';
         $a->{'role'} = 'button';
@@ -76,10 +78,10 @@ class Convert
     /**
      * Verify the target's base URL is in the hyperlink.
      */
-    protected function _validateHyperlinkBaseUrl($item, $baseUrl = null) {
+    protected function validateHyperlinkBaseUrl($item, $baseUrl = null)
+    {
         if (strpos($baseUrl, $item->href) === false) {
             $item->href = "{$baseUrl}{$item->href}";
         }
     }
-
 }
