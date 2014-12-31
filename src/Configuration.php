@@ -54,8 +54,6 @@ class Configuration extends Menu
 
     /**
      * Initialize the configuration
-     *
-     * @todo more with conversion settings here
      */
     protected function initialize($options)
     {
