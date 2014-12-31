@@ -1,6 +1,12 @@
 <?php
-require_once realpath('vendor/autoload.php');
-//@dev require_once realpath(__DIR__.'/../src/Mgac.php');
+/**
+ * PHP Menu Grab and Convert (Mgac).
+ *
+ * @link https://github.com/chrisvogt/php-menu-grab-and-convert
+ */
+use \MenuGrabAndConvert;
+
+require_once __DIR__ . '/../vendor/autoload.php';
 
 $target  = array( // Required
     'url'       => 'http://sandbox-php.dev/demo/',
@@ -16,8 +22,8 @@ $options = array( // Optional, for Bootstrap conversion
     )
 );
 
-$config = new MenuGrabAndConvert\Configuration($target, $options);
-$mgac = new MenuGrabAndConvert\Mgac($config);
+$config = new \MenuGrabAndConvert\Configuration($target, $options);
+$mgac = new \MenuGrabAndConvert\Mgac($config);
 
 ?><!DOCTYPE html>
 <html>
